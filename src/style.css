@@ -1,18 +1,21 @@
 * {
   box-sizing: border-box;
 }
+
 #listSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(246, 251, 255);
 }
+
 #toDoList {
   border: solid 2px rgb(217, 227, 235);
   background-color: white;
-  padding:0;
+  padding: 0;
   width: 50%;
 }
+
 #toDoList li {
   list-style: none;
   font-size: 1.5vw;
@@ -23,6 +26,7 @@
   align-items: center;
   gap: 2%;
 }
+
 #toDoList #addItem {
   outline: none;
   border: none;
@@ -32,16 +36,17 @@
   font-family: italic;
   font-style: italic;
 }
-#toDoList #clearList{
+
+#toDoList #clearList {
   border: none;
   font-size: 1.5vw;
-  padding: 0;
   width: 100%;
   padding: 3%;
   color: grey;
 }
 
-input:hover, button:hover {
+input:hover,
+button:hover {
   cursor: pointer;
 }
 
