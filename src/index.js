@@ -1,2 +1,4 @@
-import _ from 'lodash'
-import './style.css'
+import './style.css';
+import renderList from './Modules/RenderList.js';
+
+renderList();
