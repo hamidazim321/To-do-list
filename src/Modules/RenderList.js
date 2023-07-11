@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import '@fortawesome/fontawesome-free/css/all.css';
 let listItems = [
   {
     description: 'Exercise',
@@ -30,6 +31,9 @@ function renderList(){
     let li = document.createElement('li')
     let checkBox = document.createElement('input')
     let label = document.createElement('label')
+    let icon = document.createElement('i')
+
+    icon.classList.add('fas', 'fa-ellipsis-v')
     checkBox.type = 'checkbox'
     checkBox.id = `Item${item.index}`
     label.for = `Item${item.index}`
@@ -37,6 +41,7 @@ function renderList(){
 
     li.appendChild(checkBox)
     li.appendChild(label)
+    li.appendChild(icon)
     listHolder.insertBefore(li, clearButton)
   })
   

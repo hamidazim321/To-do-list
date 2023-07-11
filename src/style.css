@@ -20,6 +20,7 @@
   padding: 4% 4%;
   border-bottom: 1px solid rgb(217, 227, 235);
   display: flex;
+  align-items: center;
   gap: 2%;
 }
 #toDoList #addItem {
@@ -28,6 +29,8 @@
   font-size: 1.5vw;
   padding: 0;
   width: 100%;
+  font-family: italic;
+  font-style: italic;
 }
 #toDoList #clearList{
   border: none;
@@ -40,4 +43,10 @@
 
 input:hover, button:hover {
   cursor: pointer;
+}
+
+i {
+  margin-left: auto;
+  color: grey;
+  font-size: small;
 }
