@@ -25,4 +25,53 @@ function addList(newValue){
   localStorage.setItem('listItems', JSON.stringify(storedItems))
 }
 
-export {storage, addList}
+function changeColor(item){
+  let icon = item.querySelector('i')
+  if (icon.classList.contains('fa-ellipsis-v')){
+  icon.classList.remove('fa-ellipsis-v')
+  icon.classList.add('fa-trash-can')
+  item.classList.add('editList')
+  }
+}
+
+function removeElement(item) {
+  let stored = storage()
+
+}
+
+function editList(item) {
+  let label = item.querySelector('label')
+  let editInput = document.createElement('input')
+  const labelValue = label.textContent
+  editInput.classList.add('editInput')
+  editInput.type = 'text'
+  if (labelValue !== ""){
+  editInput.value = labelValue
+  label.textContent = ""
+  label.appendChild(editInput)
+  editInput.focus()
+
+  editInput.addEventListener('keypress', (e)=>{
+    if (e.key === 'Enter'){
+      let stored = storage()
+      stored.forEach(object => {
+        if (object.index == item.id){
+          object.description = editInput.value
+          localStorage.setItem('listItems', JSON.stringify(stored))
+          let label = item.querySelector('label')
+          let icon = item.querySelector('i')
+          label.innerHTML = ""
+          label.textContent = object.description
+
+          item.classList.remove('editList')
+          icon.classList.remove('fa-trash-can')
+          icon.classList.add('fa-ellipsis-v')
+        }
+      
+      })
+    }
+  })
+}
+
+}
+export {storage, addList, changeColor, editList}

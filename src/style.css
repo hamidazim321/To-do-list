@@ -59,7 +59,8 @@
 }
 
 input:hover,
-button:hover
+button:hover,
+i
  {
   cursor: pointer;
 }
@@ -68,4 +69,21 @@ i {
   margin-left: auto;
   color: grey;
   font-size: small;
+}
+
+.toDoItem label {
+  width: 100%;
+}
+
+.editList {
+  background-color: rgb(241, 241, 158);
+}
+
+.editInput {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+  font-size: 1.5vw;
+  font-family: Arial, Helvetica, sans-serif;
 }
