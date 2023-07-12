@@ -20,7 +20,7 @@ function addList(newValue) {
   const newObject = {
     description: newValue,
     completed: false,
-    index: newIndex,
+    index: newIndex + 1,
   };
   storedItems.push(newObject);
   localStorage.setItem('listItems', JSON.stringify(storedItems));
