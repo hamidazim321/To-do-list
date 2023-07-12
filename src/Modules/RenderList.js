@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import '@fortawesome/fontawesome-free/css/all.css';
-import { storage, addList, changeColor, editList} from './addRemove.js';
+import { storage, addList, changeColor, editList, deleteElement} from './addRemove.js';
 function renderList() {
   let listItems = storage()
   let listHolder = document.querySelector('#toDoList');
@@ -46,10 +46,13 @@ function updateList() {
   toDoItems.forEach(item => {
     const icon = item.querySelector('i')
     icon.addEventListener('click', ()=>{
+      deleteElement(item)
       changeColor(item)
       editList(item)
+      
     })
   })
+
 
 }
 

@@ -1,3 +1,5 @@
+import { indexOf } from "lodash"
+
 function storage(){
   let storedList = []
   try {
@@ -25,6 +27,23 @@ function addList(newValue){
   localStorage.setItem('listItems', JSON.stringify(storedItems))
 }
 
+function deleteElement(item) {
+    if (item.classList.contains('editList')){
+      let stored = storage();
+      let list = document.querySelector('#toDoList');
+      let index = item.id;
+      stored = stored.filter(object => object.index != index);
+      list.removeChild(item);
+      stored.forEach(object => {
+        if (object.index > index)
+        object.index -= 1
+      })
+      localStorage.setItem('listItems', JSON.stringify(stored));
+      console.log(storage());
+    }
+}
+
+
 function changeColor(item){
   let icon = item.querySelector('i')
   if (icon.classList.contains('fa-ellipsis-v')){
@@ -32,11 +51,6 @@ function changeColor(item){
   icon.classList.add('fa-trash-can')
   item.classList.add('editList')
   }
-}
-
-function removeElement(item) {
-  let stored = storage()
-
 }
 
 function editList(item) {
@@ -74,4 +88,4 @@ function editList(item) {
 }
 
 }
-export {storage, addList, changeColor, editList}
+export {storage, addList, changeColor, editList, deleteElement}
