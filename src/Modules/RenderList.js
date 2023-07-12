@@ -1,43 +1,28 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 import '@fortawesome/fontawesome-free/css/all.css';
-
-const listItems = [
-  {
-    description: 'Exercise',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Wash car',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Shopping',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Study',
-    completed: false,
-    index: 1,
-  },
-];
+import {
+  storage, addList, changeColor, editList, deleteElement,
+} from './addRemove.js';
 
 function renderList() {
-  const sortedlist = _.sortBy(listItems, 'index');
+  const listItems = storage();
   const listHolder = document.querySelector('#toDoList');
+  listHolder.innerHTML = `<li id="title">Today's To Do <i class="fa-solid fa-rotate"></i></li>
+  <li><input id="addItem" type="text" placeholder="Add Your list..."><button id="addButton" type="Submit" ><i class="fas fa-arrow-left"></i></button></li>
+  <button id="clearList">Clear All Completed</button>`;
   const clearButton = listHolder.querySelector('#clearList');
-  sortedlist.forEach((item) => {
+  listItems.forEach((item) => {
     const li = document.createElement('li');
     const checkBox = document.createElement('input');
     const label = document.createElement('label');
     const icon = document.createElement('i');
 
     icon.classList.add('fas', 'fa-ellipsis-v');
+    li.classList.add('toDoItem');
     checkBox.type = 'checkbox';
-    checkBox.id = `Item${item.index}`;
-    label.for = `Item${item.index}`;
+    checkBox.id = item.index;
+    li.id = item.index;
+    label.for = item.index;
     label.textContent = item.description;
 
     li.appendChild(checkBox);
@@ -47,4 +32,28 @@ function renderList() {
   });
 }
 
-export default renderList;
+function updateList() {
+  renderList();
+  const listContainer = document.querySelector('#toDoList');
+  const addInput = listContainer.querySelector('#addItem');
+  const addForm = document.querySelector('#toDoContainer');
+  addForm.addEventListener('submit', () => {
+    const { value } = addInput;
+    if (value !== '') {
+      addList(value);
+      renderList();
+    }
+  });
+
+  const toDoItems = document.querySelectorAll('.toDoItem');
+  toDoItems.forEach((item) => {
+    const icon = item.querySelector('i');
+    icon.addEventListener('click', () => {
+      deleteElement(item);
+      changeColor(item);
+      editList(item);
+    });
+  });
+}
+
+export { updateList, renderList };
