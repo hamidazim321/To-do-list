@@ -1,4 +1,5 @@
 import './style.css';
-import renderList from './Modules/RenderList.js';
+import {updateList, renderList} from './Modules/RenderList.js';
 
-renderList();
+
+updateList()

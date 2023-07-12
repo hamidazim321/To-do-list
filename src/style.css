@@ -9,6 +9,14 @@
   background-color: rgb(246, 251, 255);
 }
 
+#toDoContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
 #toDoList {
   border: solid 2px rgb(217, 227, 235);
   background-color: white;
@@ -45,8 +53,14 @@
   color: grey;
 }
 
+#addButton {
+  border: none;
+  background: none;
+}
+
 input:hover,
-button:hover {
+button:hover
+ {
   cursor: pointer;
 }
 
