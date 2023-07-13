@@ -1,24 +1,21 @@
-import { storage } from "./addRemove.js";
+import { storage } from './addRemove.js';
+
 function completeTask() {
-  let listItems = document.querySelectorAll(".toDoItem");
-  let stored = storage();
+  const listItems = document.querySelectorAll('.toDoItem');
+  const stored = storage();
   listItems.forEach((item) => {
-    let checkbox = item.querySelector('input[type="checkbox"]');
-    let label = item.querySelector("label");
-    checkbox.addEventListener("change", (e) => {
-      if (!item.classList.contains("editList")) {
+    const checkbox = item.querySelector('input[type="checkbox"]');
+    const label = item.querySelector('label');
+    checkbox.addEventListener('change', (e) => {
+      if (!item.classList.contains('editList')) {
         if (e.target.checked) {
           stored[Number(checkbox.id) - 1].completed = true;
-          localStorage.setItem("listItems", JSON.stringify(stored));
-          label.style.textDecoration = "line-through";
-          console.log("checkIn");
-          console.log(Number(checkbox.id));
+          localStorage.setItem('listItems', JSON.stringify(stored));
+          label.style.textDecoration = 'line-through';
         } else if (!e.target.checked) {
-          label.style.textDecoration = "none";
+          label.style.textDecoration = 'none';
           stored[Number(checkbox.id) - 1].completed = false;
-          localStorage.setItem("listItems", JSON.stringify(stored));
-          console.log("checkedOut");
-          console.log(Number(checkbox.id));
+          localStorage.setItem('listItems', JSON.stringify(stored));
         }
       }
     });
@@ -26,8 +23,8 @@ function completeTask() {
 }
 
 function clearCompleted() {
-  let clearButton = document.querySelector("#clearList");
-  clearButton.addEventListener("click", () => {
+  const clearButton = document.querySelector('#clearList');
+  clearButton.addEventListener('click', () => {
     let counter = 0;
     let stored = storage();
     stored = stored.filter((object) => !object.completed);
@@ -37,7 +34,7 @@ function clearCompleted() {
         counter = obj.index;
       }
     });
-    localStorage.setItem("listItems", JSON.stringify(stored));
+    localStorage.setItem('listItems', JSON.stringify(stored));
   });
 }
 
