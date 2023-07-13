@@ -16,11 +16,11 @@ function storage() {
 
 function addList(newValue) {
   const storedItems = storage();
-  const newIndex = storedItems.length;
+  const newIndex = storedItems.length + 1;
   const newObject = {
     description: newValue,
     completed: false,
-    index: newIndex + 1,
+    index: newIndex,
   };
   storedItems.push(newObject);
   localStorage.setItem('listItems', JSON.stringify(storedItems));
@@ -37,7 +37,10 @@ function deleteElement(item) {
       if (object.index > index) { object.index -= 1; }
     });
     localStorage.setItem('listItems', JSON.stringify(stored));
+    return true;
   }
+
+  return false;
 }
 
 function changeColor(item) {

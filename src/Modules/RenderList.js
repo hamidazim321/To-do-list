@@ -49,7 +49,10 @@ function updateList() {
   toDoItems.forEach((item) => {
     const icon = item.querySelector('i');
     icon.addEventListener('click', () => {
-      deleteElement(item);
+      const update = deleteElement(item);
+      if (update) {
+        updateList();
+      }
       changeColor(item);
       editList(item);
     });
