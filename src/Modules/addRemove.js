@@ -63,7 +63,7 @@ function editList(item) {
     editInput.focus();
 
     editInput.addEventListener('keypress', (e) => {
-      let addForm = document.querySelector('#toDoContainer')
+      const addForm = document.querySelector('#toDoContainer');
       if (e.key === 'Enter') {
         const stored = storage();
         stored.forEach((object) => {
@@ -78,7 +78,7 @@ function editList(item) {
             item.classList.remove('editList');
             icon.classList.remove('fa-trash-can');
             icon.classList.add('fa-ellipsis-v');
-            addForm.submit()
+            addForm.submit();
           }
         });
       }

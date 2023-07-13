@@ -90,29 +90,32 @@ i {
   #listSection {
     min-height: 80vh;
   }
+
   #toDoContainer {
     min-height: 80vh;
   }
+
   #toDoList {
     width: 100%;
     min-height: 80vh;
     display: flex;
     flex-direction: column;
   }
+
   #toDoList li {
     font-size: 3.5vw;
   }
+
   #toDoList #addItem {
     font-size: 3.5vw;
   }
-  
-.editInput {
-  font-size: 3.5vw;
-}
 
+  .editInput {
+    font-size: 3.5vw;
+  }
 
-#toDoList #clearList {
-  font-size: 3.5vw;
-  margin-top: auto;
-}
+  #toDoList #clearList {
+    font-size: 3.5vw;
+    margin-top: auto;
+  }
 }
