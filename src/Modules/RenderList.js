@@ -1,7 +1,10 @@
-// import _ from 'lodash';
 import '@fortawesome/fontawesome-free/css/all.css';
 import {
-  storage, addList, changeColor, editList, deleteElement,
+  storage,
+  addList,
+  changeColor,
+  editList,
+  deleteElement,
 } from './addRemove.js';
 
 function renderList() {
@@ -49,7 +52,10 @@ function updateList() {
   toDoItems.forEach((item) => {
     const icon = item.querySelector('i');
     icon.addEventListener('click', () => {
-      deleteElement(item);
+      const update = deleteElement(item);
+      if (update) {
+        updateList();
+      }
       changeColor(item);
       editList(item);
     });
