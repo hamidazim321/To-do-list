@@ -14,6 +14,7 @@ function renderList() {
   <li><input id="addItem" type="text" placeholder="Add Your list..."><button id="addButton" type="Submit" ><i class="fas fa-arrow-left"></i></button></li>
   <button id="clearList">Clear All Completed</button>`;
   const clearButton = listHolder.querySelector('#clearList');
+  clearButton.disabled = true
   listItems.forEach((item) => {
     const li = document.createElement('li');
     const checkBox = document.createElement('input');
@@ -41,12 +42,14 @@ function updateList() {
   const addInput = listContainer.querySelector('#addItem');
   const addForm = document.querySelector('#toDoContainer');
   addForm.addEventListener('submit', () => {
+    // e.preventDefault()
     const { value } = addInput;
     if (value !== '') {
       addList(value);
       renderList();
     }
   });
+  console.log(storage())
 
   const toDoItems = document.querySelectorAll('.toDoItem');
   toDoItems.forEach((item) => {

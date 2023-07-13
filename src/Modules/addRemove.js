@@ -1,5 +1,3 @@
-// import { indexOf } from 'lodash';
-
 function storage() {
   let storedList = [];
   try {
