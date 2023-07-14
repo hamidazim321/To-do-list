@@ -6,6 +6,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [live-demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -58,6 +59,13 @@
 ### Key Features <a name="key-features"></a>
 
 - **Allows users to add and remove thing from the to-do list**
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Live Demo <a name="live-demo"></a>
+
+-  [live](https://hamidazim321.github.io/To-do-list/dist/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
