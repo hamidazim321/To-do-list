@@ -12,18 +12,6 @@ function storage() {
   return storedList;
 }
 
-function addList(newValue) {
-  const storedItems = storage();
-  const newIndex = storedItems.length + 1;
-  const newObject = {
-    description: newValue,
-    completed: false,
-    index: newIndex,
-  };
-  storedItems.push(newObject);
-  localStorage.setItem('listItems', JSON.stringify(storedItems));
-}
-
 function deleteElement(item) {
   if (item.classList.contains('editList')) {
     let stored = storage();
@@ -86,5 +74,5 @@ function editList(item) {
   }
 }
 export {
-  storage, addList, changeColor, editList, deleteElement,
+  storage, changeColor, editList, deleteElement,
 };

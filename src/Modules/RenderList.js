@@ -1,11 +1,11 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import {
   storage,
-  addList,
   changeColor,
   editList,
   deleteElement,
 } from './addRemove.js';
+import addList from './addList.js';
 
 function renderList() {
   const listItems = storage();
