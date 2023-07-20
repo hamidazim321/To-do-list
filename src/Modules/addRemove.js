@@ -12,23 +12,6 @@ function storage() {
   return storedList;
 }
 
-function deleteElement(item) {
-  if (item.classList.contains('editList')) {
-    let stored = storage();
-    const list = document.querySelector('#toDoList');
-    const index = Number(item.id);
-    stored = stored.filter((object) => object.index !== index);
-    list.removeChild(item);
-    stored.forEach((object) => {
-      if (object.index > index) { object.index -= 1; }
-    });
-    localStorage.setItem('listItems', JSON.stringify(stored));
-    return true;
-  }
-
-  return false;
-}
-
 function changeColor(item) {
   const icon = item.querySelector('i');
   if (icon.classList.contains('fa-ellipsis-v')) {
@@ -74,5 +57,5 @@ function editList(item) {
   }
 }
 export {
-  storage, changeColor, editList, deleteElement,
+  storage, changeColor, editList,
 };

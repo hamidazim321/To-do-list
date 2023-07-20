@@ -1,5 +1,5 @@
-// Import the function to be tested
-import addList from '../addList';
+// Import the functions to be tested
+import addList from '../addList.js';
 
 // Import the `jest-localstorage-mock` library to mock localStorage
 import 'jest-localstorage-mock';

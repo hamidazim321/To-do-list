@@ -1,5 +1,5 @@
 function addList(newValue) {
-  const storedItems = JSON.parse(localStorage.getItem('listItems')) || []
+  const storedItems = JSON.parse(localStorage.getItem('listItems')) || [];
   const newIndex = storedItems.length + 1;
   const newObject = {
     description: newValue,
@@ -10,4 +10,4 @@ function addList(newValue) {
   localStorage.setItem('listItems', JSON.stringify(storedItems));
 }
 
-export default addList
+export default addList;
