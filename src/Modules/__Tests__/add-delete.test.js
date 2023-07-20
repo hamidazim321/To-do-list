@@ -1,6 +1,6 @@
 // Import the functions to be tested
 import addList from '../addList.js';
-import deleteElement from '../deleteItem';
+import deleteElement from '../deleteItem.js';
 
 // Import the `jest-localstorage-mock` library to mock localStorage
 import 'jest-localstorage-mock';
@@ -90,7 +90,7 @@ describe('deleteElement from List and Local Storage', () => {
     list.id = 'toDoList';
     list.appendChild(listItemToDelete);
     document.body.appendChild(list);
-  // Mock the removeChild method of the list element
+    // Mock the removeChild method of the list element
     list.removeChild = jest.fn();
 
     // Call the deleteElement function with the DOM element
