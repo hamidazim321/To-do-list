@@ -115,7 +115,7 @@ To run the project:
 
 To run tests, run the following command:
 
-npx hint .
+npm test
 
 ### Deployment
 
@@ -131,6 +131,10 @@ You can deploy this project using Github Pages
 
 - GitHub: [@hamidazim321](https://github.com/hamidazim321)
 - Twitter: [@hamidazim321](https://twitter.com/hamidazim321)
+
+👤 **Mohammed roshdy**
+
+- GitHub: [@hamidazim321](https://github.com/MohamedRoshdy2021)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
