@@ -90,7 +90,7 @@ describe('deleteElement from List and Local Storage', () => {
     list.id = 'toDoList';
     list.appendChild(listItemToDelete);
     document.body.appendChild(list);
-  // Mock the removeChild method of the list element
+    // Mock the removeChild method of the list element
     list.removeChild = jest.fn();
 
     // Call the deleteElement function with the DOM element
