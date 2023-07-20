@@ -1,11 +1,9 @@
 import '@fortawesome/fontawesome-free/css/all.css';
-import {
-  storage,
-  changeColor,
-  editList,
-} from './addRemove.js';
+import changeColor from './addRemove.js';
 import addList from './addList.js';
 import deleteElement from './deleteItem.js';
+import editList from './editList.js';
+import storage from './storage.js';
 
 function renderList() {
   const listItems = storage();
@@ -42,7 +40,6 @@ function updateList() {
   const addInput = listContainer.querySelector('#addItem');
   const addForm = document.querySelector('#toDoContainer');
   addForm.addEventListener('submit', () => {
-    // e.preventDefault()
     const { value } = addInput;
     if (value !== '') {
       addList(value);
@@ -56,10 +53,10 @@ function updateList() {
     icon.addEventListener('click', () => {
       const update = deleteElement(item);
       if (update) {
-        updateList();
+        addForm.submit();
       }
       changeColor(item);
-      editList(item);
+      editList(item, storage);
     });
   });
 }
