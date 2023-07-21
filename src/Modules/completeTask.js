@@ -4,13 +4,13 @@ function handleCheckBox(clearButton, target, label) {
   const stored = storage();
   if (target.checked) {
     clearButton.disabled = false;
-    stored.find(obj => obj.index === Number(target.id)).completed = true
+    stored.find((obj) => obj.index === Number(target.id)).completed = true;
     localStorage.setItem('listItems', JSON.stringify(stored));
     label.style.textDecoration = 'line-through';
   } else if (!target.checked) {
     clearButton.disabled = true;
     label.style.textDecoration = 'none';
-    stored.find(obj => obj.index === Number(target.id)).completed = false
+    stored.find((obj) => obj.index === Number(target.id)).completed = false;
     localStorage.setItem('listItems', JSON.stringify(stored));
   }
 }
@@ -23,7 +23,7 @@ function completeTask() {
     const label = item.querySelector('label');
     checkbox.addEventListener('change', (e) => {
       if (!item.classList.contains('editList')) {
-        handleCheckBox(clearButton, e.target, label)
+        handleCheckBox(clearButton, e.target, label);
       }
     });
   });
