@@ -1,19 +1,17 @@
 import '@fortawesome/fontawesome-free/css/all.css';
-import {
-  storage,
-  changeColor,
-  editList,
-} from './addRemove.js';
+import changeColor from './addRemove.js';
 import addList from './addList.js';
 import deleteElement from './deleteItem.js';
+import editList from './editList.js';
+import storage from './storage.js';
 
 function renderList() {
   const listItems = storage();
   const listHolder = document.querySelector('#toDoList');
   listHolder.innerHTML = `<li id="title">Today's To Do <i class="fa-solid fa-rotate"></i></li>
   <li><input id="addItem" type="text" placeholder="Add Your list..."><button id="addButton" type="Submit" ><i class="fas fa-arrow-left"></i></button></li>
-  <button id="clearList">Clear All Completed</button>`;
-  const clearButton = listHolder.querySelector('#clearList');
+  <li id="clearButton"><button id="clearList">Clear All Completed</button></li>`;
+  const clearButton = listHolder.querySelector('#clearButton');
   clearButton.disabled = true;
   listItems.forEach((item) => {
     const li = document.createElement('li');
@@ -42,7 +40,6 @@ function updateList() {
   const addInput = listContainer.querySelector('#addItem');
   const addForm = document.querySelector('#toDoContainer');
   addForm.addEventListener('submit', () => {
-    // e.preventDefault()
     const { value } = addInput;
     if (value !== '') {
       addList(value);
@@ -56,10 +53,10 @@ function updateList() {
     icon.addEventListener('click', () => {
       const update = deleteElement(item);
       if (update) {
-        updateList();
+        addForm.submit();
       }
       changeColor(item);
-      editList(item);
+      editList(item, storage);
     });
   });
 }
