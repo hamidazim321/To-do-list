@@ -10,8 +10,8 @@ function renderList() {
   const listHolder = document.querySelector('#toDoList');
   listHolder.innerHTML = `<li id="title">Today's To Do <i class="fa-solid fa-rotate"></i></li>
   <li><input id="addItem" type="text" placeholder="Add Your list..."><button id="addButton" type="Submit" ><i class="fas fa-arrow-left"></i></button></li>
-  <button id="clearList">Clear All Completed</button>`;
-  const clearButton = listHolder.querySelector('#clearList');
+  <li id="clearButton"><button id="clearList">Clear All Completed</button></li>`;
+  const clearButton = listHolder.querySelector('#clearButton');
   clearButton.disabled = true;
   listItems.forEach((item) => {
     const li = document.createElement('li');
