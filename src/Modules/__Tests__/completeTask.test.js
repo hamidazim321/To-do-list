@@ -67,9 +67,9 @@ describe('completeTask', () => {
     expect(storedItemsAfterTrue[0].completed).toBe(true)
 
     // Uncheck the checkbox to set the item completed property back to false
-    // checkBox1.checked = false
-    // checkBox1.dispatchEvent(event);
-    // const storedItemsAfterFalse = JSON.parse(localStorage.getItem('listItems'));
-    // expect(storedItemsAfterFalse[0].completed).toBe(false)
+    checkBox1.checked = false
+    checkBox1.dispatchEvent(event);
+    const storedItemsAfterFalse = JSON.parse(localStorage.getItem('listItems'));
+    expect(storedItemsAfterFalse[0].completed).toBe(false)
   })
 })

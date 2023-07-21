@@ -10,7 +10,7 @@ function handleCheckBox(clearButton, target, label) {
   } else if (!target.checked) {
     clearButton.disabled = true;
     label.style.textDecoration = 'none';
-    stored.find(obj => obj.index === Number(target.id)).completed = falses
+    stored.find(obj => obj.index === Number(target.id)).completed = false
     localStorage.setItem('listItems', JSON.stringify(stored));
   }
 }
