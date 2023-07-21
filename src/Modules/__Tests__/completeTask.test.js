@@ -101,7 +101,7 @@ describe('clearCompleted', () => {
 
   test('Should Remove the Correct Objects from from local Storage that has completed property set to true', () => {
     // Create a test li element with a specific structure
-        document.body.innerHTML = `
+    document.body.innerHTML = `
         <ul id="toDoList">
           <li class="toDoItem" id="1">
             <input type="checkbox" id="1">
@@ -121,30 +121,30 @@ describe('clearCompleted', () => {
           <li id="clearButton">
           <button id="clearList">Clear All Completed</button>
           </li>
-        </ul>`
+        </ul>`;
     // call the clearCompleted function to clear the object with completed property set to true
     // the object with completed property set to true is the third object with description = Task 3
 
-    clearCompleted()
+    clearCompleted();
 
     // Simulate a click event on the clearList Button to check the execution of the click event
 
-    const clearButton = document.querySelector('#clearList')
-    clearButton.disabled = false
+    const clearButton = document.querySelector('#clearList');
+    clearButton.disabled = false;
     const event = new Event('click', { bubbles: true });
-    clearButton.dispatchEvent(event)
+    clearButton.dispatchEvent(event);
 
-    //Check to see the third object is cleared from the localStorage
+    // Check to see the third object is cleared from the localStorage
     const storageAfterClear = JSON.parse(localStorage.getItem('listItems'));
-   // Check Length should be 2 after clear
-    expect(storageAfterClear.length).toBe(2)
+    // Check Length should be 2 after clear
+    expect(storageAfterClear.length).toBe(2);
 
     // the description of first and second Object should be Task 1 and Task 2 respectively
-    expect(storageAfterClear[0].description).toBe('Task 1')
-    expect(storageAfterClear[1].description).toBe('Task 2')
+    expect(storageAfterClear[0].description).toBe('Task 1');
+    expect(storageAfterClear[1].description).toBe('Task 2');
 
     // The indexes should be 1 and 2 respectively
-    expect(storageAfterClear[0].index).toBe(1)
-    expect(storageAfterClear[1].index).toBe(2)
-  })
-})
+    expect(storageAfterClear[0].index).toBe(1);
+    expect(storageAfterClear[1].index).toBe(2);
+  });
+});
