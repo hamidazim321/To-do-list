@@ -7,7 +7,7 @@ jest.mock('../storage.js', () => ({
   default: jest.fn(() => [
     { index: 1, description: 'Task 1', completed: false },
     { index: 2, description: 'Task 2', completed: false },
-    { index: 3, description: 'Task 3', completed: false }
+    { index: 3, description: 'Task 3', completed: true }  // set 1 to True to Test the clearCompleted function
   ]),
 }));
 
@@ -45,13 +45,7 @@ describe('completeTask', () => {
       </li>
     </ul>
     `
-     // Mock the return value of the storage function
-     const mockStorage = jest.fn(() => [
-      { index: 1, description: 'Task 1', completed: false },
-      { index: 2, description: 'Task 2', completed: false },
-      { index: 3, description: 'Task 3', completed: true } // set 1 to True to Test the clearCompleted function
-    ]);
-
+    
     // call the completeTask function
     completeTask()
 
@@ -81,17 +75,18 @@ describe('completeTask', () => {
   })
 })
 
-// describe('clearCompleted', () => {
-//   beforeEach(() => {
-//     // Clear mock storage before each test
-//     localStorage.clear();
-//   });
+describe('clearCompleted', () => {
+  beforeEach(() => {
+    // Clear mock storage before each test
+    localStorage.clear();
+  });
 
-//   afterEach(() => {
-//     jest.clearAllMocks();
-//   });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   
-//   test('Should Remove the Correct Objects from from local Storage that has completed property set to true', ()=> {
+  test('Should Remove the Correct Objects from from local Storage that has completed property set to true', ()=> {
 
-//   })
-// })
+
+  })
+})
