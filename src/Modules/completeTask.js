@@ -1,25 +1,29 @@
 import storage from './storage.js';
 
+function handleCheckBox(clearButton, target, label) {
+  const stored = storage();
+  if (target.checked) {
+    clearButton.disabled = false;
+    stored.find(obj => obj.index === Number(target.id)).completed = true
+    localStorage.setItem('listItems', JSON.stringify(stored));
+    label.style.textDecoration = 'line-through';
+  } else if (!target.checked) {
+    clearButton.disabled = true;
+    label.style.textDecoration = 'none';
+    stored.find(obj => obj.index === Number(target.id)).completed = falses
+    localStorage.setItem('listItems', JSON.stringify(stored));
+  }
+}
+
 function completeTask() {
   const listItems = document.querySelectorAll('.toDoItem');
   const clearButton = document.querySelector('#clearList');
-  const stored = storage();
   listItems.forEach((item) => {
     const checkbox = item.querySelector('input[type="checkbox"]');
     const label = item.querySelector('label');
     checkbox.addEventListener('change', (e) => {
       if (!item.classList.contains('editList')) {
-        if (e.target.checked) {
-          clearButton.disabled = false;
-          stored[Number(checkbox.id) - 1].completed = true;
-          localStorage.setItem('listItems', JSON.stringify(stored));
-          label.style.textDecoration = 'line-through';
-        } else if (!e.target.checked) {
-          clearButton.disabled = true;
-          label.style.textDecoration = 'none';
-          stored[Number(checkbox.id) - 1].completed = false;
-          localStorage.setItem('listItems', JSON.stringify(stored));
-        }
+        handleCheckBox(clearButton, e.target, label)
       }
     });
   });
